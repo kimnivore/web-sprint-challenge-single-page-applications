@@ -13,13 +13,13 @@ const App = () => {
       <nav id="order-pizza">
       <h1>Lambda Eats</h1>
         <Link to='/'>Home</Link>
-        <Link to='/pizzaForm'>Pizza</Link>
+        <Link to='/pizza'>Pizza</Link>
       </nav>
 
       <Route exact path ='/'>
       </Route>
       
-      <Route path='/pizzaForm'>
+      <Route path='/pizza'>
           <PizzaForm />
       </Route>
     </div>
