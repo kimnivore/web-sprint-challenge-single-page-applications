@@ -17,7 +17,18 @@ const PizzaForm = (props) => {
            <label>Name
                <input
                id='name-input'
+               name="name"
+               type='text'
+               placeholder='Enter your name'
+               maxLength='30'
+               />
+           </label>
 
+           <label>Pizza Size
+               <input 
+               id='size-dropdown'
+               
+               
                />
            </label>
 
