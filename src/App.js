@@ -8,7 +8,7 @@ import PizzaForm from './PizzaForm';
 import schema from './Schema';
 
 
-const initialPizza = [];
+const initialPizzas = [];
 const initialDisabled = true;
 const initialFormValues = {
   name: '',
@@ -25,24 +25,23 @@ const initialFormErrors = {
 }
 
 const App = () => {
-  const [pizzas, setPizzas] = useState(initialPizza);
+  const [pizzas, setPizzas] = useState(initialPizzas);
   const [disabled, setDisabled] = useState(initialDisabled);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
  
-
-  const getPizza = () => {
-    axios.get(`https://reqres.in/api/orders`)
-    .then(resp => {
-      console.log(resp.data.data);
-      setPizzas(resp.data.data);
-    }).catch(err => console.error(err))
-  }
+  // const getPizzas = () => {
+  //   axios.get(`https://reqres.in/api/orders`)
+  //   .then(resp => {
+  //     // console.log(resp.data.data);
+  //     setPizzas(resp.data.data);
+  //   }).catch(err => console.error(err))
+  // }
 
   const postPizza = newPizza => {
     axios.post(`https://reqres.in/api/orders`, newPizza)
     .then(resp => {
-      setPizzas([resp.data.data, ...pizzas])
+      setPizzas([resp.data, ...pizzas])
     }).catch(err => console.error(err))
     .finally(() => setFormValues(initialFormValues))
   }
@@ -65,17 +64,17 @@ const App = () => {
   const formSubmit = () => {
     const newPizza = {
       name: formValues.name.trim(),
-      size: formValues.size.trim(),
-      toppings: ['sausage', 'pineapple', 'jalapeno', 'beef'].filter(topping => !!formValues[topping]),
-      special: formValues.special.trim()
+      size: formValues.size,
+      // toppings: ['sausage', 'pineapple', 'jalapeno', 'beef'].filter(topping => !!formValues[topping]),
+      // special: formValues.special.trim()
     }
 
     postPizza(newPizza);
   }
 
-  useEffect(() => {
-    getPizza()
-  }, [])
+  // useEffect(() => {
+  //   getPizzas()
+  // }, [])
 
   useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
