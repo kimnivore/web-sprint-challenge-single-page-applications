@@ -25,3 +25,23 @@ nav {
   align-items: center;
   padding: 10px;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  padding: 100px;
+  background-color: rgb(236, 221, 207);
+}
+
+.container button {
+  background-color: coral;
+  font-size: 2rem;
+  color: white;
+  border-radius: 50%;
+  padding: 20px
+}

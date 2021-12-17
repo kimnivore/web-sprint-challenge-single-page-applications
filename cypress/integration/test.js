@@ -67,6 +67,10 @@ describe('Submit', () => {
         sizeInput().select('XXX');
         submit().should('not.be.disabled');
     })
+    it('submit button disabled when required fields are not filled in completely', () => {
+        nameInput().type('k');
+        submit().should('be.disabled');
+    })
 })
   
 

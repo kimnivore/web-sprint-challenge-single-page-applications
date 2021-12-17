@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
 import './App.css';
-
+import Home from './Home';
 import PizzaForm from './PizzaForm';
 import schema from './Schema';
 
@@ -81,14 +81,17 @@ const App = () => {
   }, [formValues])
 
   return (
-    <div>
-      <nav id="order-pizza">
+    <div >
+      <nav >
       <h1>Lambda Eats</h1>
+    
         <Link to='/'>Home</Link>
-        <Link to='/pizza'>Pizza</Link>
+        <Link id="order-pizza" to='/pizza' >Pizza</Link>
+      
       </nav>
 
       <Route exact path ='/'>
+        <Home />
       </Route>
       
       <Route path='/pizza'>
@@ -100,13 +103,7 @@ const App = () => {
             errors={formErrors}
           />
       </Route>
-    {/* {
-      pizzas.map(pizza => {
-        return (
-          <Pizza key={pizza.id} details={pizza} />
-        )
-      })
-    } */}
+ 
     </div>
   );
 };
