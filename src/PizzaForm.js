@@ -16,6 +16,7 @@ const PizzaForm = (props) => {
        <form id='pizza-form'>
            <label>Name
                <input
+               id='name-input'
 
                />
            </label>
