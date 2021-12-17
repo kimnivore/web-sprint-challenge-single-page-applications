@@ -85,7 +85,7 @@ const PizzaForm = (props) => {
                         onChange={onChange}
                         name="special"
                         type='text'
-                        placeholder="Anything else you'd like to add?"
+                        placeholder="Anything else?"
                         maxLength='50'
                     />
                 </label>

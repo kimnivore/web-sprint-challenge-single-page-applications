@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 
-const Schema = yup.object().shape({
+const schema = yup.object().shape({
     name: yup
     .string()
     .trim()
@@ -22,7 +22,7 @@ const Schema = yup.object().shape({
 
     special: yup
     .string()
-    .trim(),
+    .trim()
 })
 
-export default Schema;
+export default schema;

@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import * as yup from 'yup';
+import './App.css';
+
 import PizzaForm from './PizzaForm';
 import schema from './Schema';
-// import Pizza from './Pizza';
 
+
+const initialPizza = [];
+const initialDisabled = true;
 const initialFormValues = {
   name: '',
   size: '',
@@ -15,23 +19,17 @@ const initialFormValues = {
   beef: false,
   special: ''
 }
-
 const initialFormErrors = {
   name: '',
   size: '',
 }
 
-const initialPizza = [];
-const initialDisabled = true;
-
-
-
-
 const App = () => {
   const [pizzas, setPizzas] = useState(initialPizza);
+  const [disabled, setDisabled] = useState(initialDisabled);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(initialDisabled);
+ 
 
   const getPizza = () => {
     axios.get(`https://reqres.in/api/orders`)
@@ -69,7 +67,7 @@ const App = () => {
       name: formValues.name.trim(),
       size: formValues.size.trim(),
       toppings: ['sausage', 'pineapple', 'jalapeno', 'beef'].filter(topping => !!formValues[topping]),
-      special: formValues.special.trim(),
+      special: formValues.special.trim()
     }
 
     postPizza(newPizza);
@@ -101,9 +99,15 @@ const App = () => {
             submit={formSubmit}
             disabled={disabled}
             errors={formErrors}
-
           />
       </Route>
+    {/* {
+      pizzas.map(pizza => {
+        return (
+          <Pizza key={pizza.id} details={pizza} />
+        )
+      })
+    } */}
     </div>
   );
 };
