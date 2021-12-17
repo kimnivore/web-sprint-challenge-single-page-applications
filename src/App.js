@@ -33,6 +33,7 @@ const App = () => {
   const postPizza = newPizza => {
     axios.post(`https://reqres.in/api/orders`, newPizza)
     .then(resp => {
+      console.log(resp);
       setPizzas([resp.data, ...pizzas])
     }).catch(err => console.error(err))
     .finally(() => setFormValues(initialFormValues))
