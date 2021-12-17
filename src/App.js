@@ -68,11 +68,11 @@ const App = () => {
 
   return (
     <div >
-      <nav id='order-pizza'>
+      <nav>
       <h1>Lambda Eats</h1>
     
         <Link to='/'>Home</Link>
-        <Link to='/pizza' >Pizza</Link>
+        <Link id='order-pizza' to='/pizza' >Pizza</Link>
       
       </nav>
 
