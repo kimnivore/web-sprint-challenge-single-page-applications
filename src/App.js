@@ -29,14 +29,6 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
- 
-  // const getPizzas = () => {
-  //   axios.get(`https://reqres.in/api/orders`)
-  //   .then(resp => {
-  //     // console.log(resp.data.data);
-  //     setPizzas(resp.data.data);
-  //   }).catch(err => console.error(err))
-  // }
 
   const postPizza = newPizza => {
     axios.post(`https://reqres.in/api/orders`, newPizza)
@@ -65,16 +57,10 @@ const App = () => {
     const newPizza = {
       name: formValues.name.trim(),
       size: formValues.size,
-      // toppings: ['sausage', 'pineapple', 'jalapeno', 'beef'].filter(topping => !!formValues[topping]),
-      // special: formValues.special.trim()
     }
 
     postPizza(newPizza);
   }
-
-  // useEffect(() => {
-  //   getPizzas()
-  // }, [])
 
   useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
@@ -82,11 +68,11 @@ const App = () => {
 
   return (
     <div >
-      <nav >
+      <nav id='order-pizza'>
       <h1>Lambda Eats</h1>
     
         <Link to='/'>Home</Link>
-        <Link id="order-pizza" to='/pizza' >Pizza</Link>
+        <Link to='/pizza' >Pizza</Link>
       
       </nav>
 

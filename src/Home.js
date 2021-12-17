@@ -11,7 +11,8 @@ export default function Home() {
 
     return (
         <div className='container'>
-            <button
+            <button 
+            id='order-pizza'
             onClick={routeToPizza}
             >
                 Pizza?
