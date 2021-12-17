@@ -12,7 +12,6 @@ export default function Home() {
     return (
         <div className='container'>
             <button 
-            id='order-pizza'
             onClick={routeToPizza}
             >
                 Pizza?
